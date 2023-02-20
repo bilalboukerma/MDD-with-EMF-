@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="tPIDM" nsURI="http://www.example.org/tPIDM" nsPrefix="tPIDM">
+  <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
+  </eAnnotations>
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Universite">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Nom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="departement" lowerBound="1"
+        upperBound="-1" eType="#//Departement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="etudiant" lowerBound="1"
+        upperBound="-1" eType="#//Etudiant" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Enseignant">
+    <eOperations name="enseigner">
+      <eParameters name="m" eType="#//Matiere"/>
+    </eOperations>
+    <eOperations name="augmenterSal" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eParameters name="v" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Nom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Age" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Debut" eType="#//Date"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Salaire" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="titre" eType="#//Titre"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enseigen" upperBound="-1"
+        eType="#//Matiere"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Departement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="v v1 v3"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="v" value="self.chef->size()=1 and self.chef.Age>40"/>
+      <details key="v1" value="self.enseignant->forAll(e1,e2 : Enseignant|e1&lt;>e2 implies e1.Nom&lt;>e2.Nom)"/>
+      <details key="v3" value="self.enseignant->exists(e: Enseignant|e.titre = Titre::pr)"/>
+    </eAnnotations>
+    <eOperations name="ajouter">
+      <eParameters name="e" eType="#//Enseignant"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Nom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enseignant" lowerBound="1"
+        upperBound="-1" eType="#//Enseignant" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="chef" lowerBound="1" eType="#//Enseignant"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Note">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="#//Date"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valeur" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Etudiant">
+    <eOperations name="estAdmis" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="age" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Nom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Naissance" eType="#//Date"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="matiere" upperBound="-1"
+        eType="#//Matiere" eOpposite="#//Matiere/etudiant"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="note" upperBound="-1" eType="#//Note"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Matiere">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="v4"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="v4" value="self.matrie->notEmpty()"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="heures" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Nom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="etudiant" upperBound="-1"
+        eType="#//Etudiant" eOpposite="#//Etudiant/matiere"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="note" upperBound="-1" eType="#//Note"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="matrie" lowerBound="1"
+        upperBound="-1" eType="#//Enseignant" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Date" instanceClassName="java.util.Date"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="Titre">
+    <eLiterals name="ma"/>
+    <eLiterals name="mc" value="1"/>
+    <eLiterals name="pr" value="2"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tPIDM:Universite
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:tPIDM="http://www.example.org/tPIDM"
+    xsi:schemaLocation="http://www.example.org/tPIDM tPIDM.ecore">
+  <departement
+      Nom="">
+    <enseignant
+        titre="pr"/>
+    <chef Age="42"/>
+  </departement>
+  <etudiant
+      Nom=""
+      Naissance="0025-10-21T00:00:00.000+0000"/>
+</tPIDM:Universite>

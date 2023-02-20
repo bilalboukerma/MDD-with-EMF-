@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/TPIDM/src-gen" creationIcons="false" editDirectory="/TPIDM.edit/src-gen"
+    editorDirectory="/TPIDM.editor/src-gen" modelPluginID="TPIDM" modelName="TPIDM"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>tPIDM.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="TPIDM" disposableProviderFactory="true" ecorePackage="tPIDM.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="tPIDM.ecore#//Titre">
+      <genEnumLiterals ecoreEnumLiteral="tPIDM.ecore#//Titre/ma"/>
+      <genEnumLiterals ecoreEnumLiteral="tPIDM.ecore#//Titre/mc"/>
+      <genEnumLiterals ecoreEnumLiteral="tPIDM.ecore#//Titre/pr"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="tPIDM.ecore#//Date"/>
+    <genClasses ecoreClass="tPIDM.ecore#//Universite">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tPIDM.ecore#//Universite/Code"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tPIDM.ecore#//Universite/Nom"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tPIDM.ecore#//Universite/departement"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference tPIDM.ecore#//Universite/etudiant"/>
+    </genClasses>
+    <genClasses ecoreClass="tPIDM.ecore#//Enseignant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tPIDM.ecore#//Enseignant/Nom"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tPIDM.ecore#//Enseignant/Age"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tPIDM.ecore#//Enseignant/Debut"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tPIDM.ecore#//Enseignant/Salaire"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tPIDM.ecore#//Enseignant/titre"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tPIDM.ecore#//Enseignant/enseigen"/>
+      <genOperations ecoreOperation="tPIDM.ecore#//Enseignant/enseigner">
+        <genParameters ecoreParameter="tPIDM.ecore#//Enseignant/enseigner/m"/>
+      </genOperations>
+      <genOperations ecoreOperation="tPIDM.ecore#//Enseignant/augmenterSal">
+        <genParameters ecoreParameter="tPIDM.ecore#//Enseignant/augmenterSal/v"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="tPIDM.ecore#//Departement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tPIDM.ecore#//Departement/Nom"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tPIDM.ecore#//Departement/enseignant"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tPIDM.ecore#//Departement/chef"/>
+      <genOperations ecoreOperation="tPIDM.ecore#//Departement/ajouter">
+        <genParameters ecoreParameter="tPIDM.ecore#//Departement/ajouter/e"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="tPIDM.ecore#//Note">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tPIDM.ecore#//Note/date"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tPIDM.ecore#//Note/valeur"/>
+    </genClasses>
+    <genClasses ecoreClass="tPIDM.ecore#//Etudiant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tPIDM.ecore#//Etudiant/Nom"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tPIDM.ecore#//Etudiant/Naissance"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tPIDM.ecore#//Etudiant/matiere"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tPIDM.ecore#//Etudiant/note"/>
+      <genOperations ecoreOperation="tPIDM.ecore#//Etudiant/estAdmis"/>
+      <genOperations ecoreOperation="tPIDM.ecore#//Etudiant/age"/>
+    </genClasses>
+    <genClasses ecoreClass="tPIDM.ecore#//Matiere">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tPIDM.ecore#//Matiere/heures"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tPIDM.ecore#//Matiere/Nom"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tPIDM.ecore#//Matiere/etudiant"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tPIDM.ecore#//Matiere/note"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference tPIDM.ecore#//Matiere/matrie"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
