@@ -4,7 +4,7 @@ This repository contains a sample project that demonstrates how to apply Model-d
 
 ## Team: [Bilal bukerma , Ramla Mohammed , Ibrahim Kadi]
 
-## Instructor: [hariche abdelhamid · PhD embedded systems and real time ]
+## Instructor: [Hariche Abdelhamid · PhD embedded systems and real time ]
 
 ## University: [Djilali Bounaama University]
 
