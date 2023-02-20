@@ -4,9 +4,11 @@ This repository contains a sample project that demonstrates how to apply Model-d
 
 ## Team: [Bilal bukerma , Ramla Mohammed , Ibrahim Kadi]
 
-## Instructor: [hariche abdelhamidcelebrate hariche abdelhamid · PhD embedded systems and real time ]
+## Instructor: [hariche abdelhamid · PhD embedded systems and real time ]
 
-## University: [University Name]
+## University: [Djilali Bounaama University]
+
+
 ## What is Model-driven development (MDD)?
 
 Model-driven development (MDD) is an approach to software development that emphasizes the use of models to represent system requirements, design, and implementation. With MDD, developers create and manipulate models of the system using graphical or textual modeling languages, and use these models to automatically generate executable code or other artifacts.
