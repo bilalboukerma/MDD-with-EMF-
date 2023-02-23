@@ -2,7 +2,7 @@
 
 This repository contains a sample project that demonstrates how to apply Model-driven development (MDD) using the Eclipse Modeling Framework (EMF).
 
-## Team: [Bilal Boukerma , Ramla Mohammed , Ibrahim Kadi]
+## Team: [Bilal Boukerma , Ramla Mohammed , Ibrahim Kridi]
 
 ## Instructor: [Hariche Abdelhamid · PhD embedded systems and real time ]
 
